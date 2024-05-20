@@ -76,12 +76,12 @@ export default function FinancialControl() {
             />
 
             <LineChart
+              title="Faturamento"
               colors={['#4CB140']}
-              title="Total de gastos"
               serieName="Total em R$"
               seriesData={dataProfitOfLastTenDays.data}
+              titleHeader="Faturamento dos últimos 10 dias"
               categories={dataProfitOfLastTenDays.categories}
-              titleHeader="Total de gastos dos últimos 10 dias"
             />
 
             <PieChart

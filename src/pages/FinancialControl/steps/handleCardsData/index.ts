@@ -49,7 +49,7 @@ export const handleCardsData = (sales: ISale[]): CardData[] => {
       Icon: Money,
     },
     {
-      name: 'Gastos Totais de Hoje',
+      name: 'Faturamento de Hoje',
       total: currencyFormat(todayBilling),
       Icon: Money,
     },
@@ -59,7 +59,7 @@ export const handleCardsData = (sales: ISale[]): CardData[] => {
       Icon: Money,
     },
     {
-      name: 'Gastos Totais do Mês',
+      name: 'Faturamento do Mês',
       total: currencyFormat(totalMonthBilling),
       Icon: Money,
     },

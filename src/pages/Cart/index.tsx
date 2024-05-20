@@ -47,33 +47,38 @@ export default function Cart() {
 
   return (
     <div className="m-6 w-auto">
-      <div className="flex justify-between items-center sm:flex-col sm:items-start sm:gap-6">
-        <div className="flex flex-col gap-2">
-          <strong className="font-semibold">Seu(s) pet(s)</strong>
-          <span>
-            Total ({itemsTotal} pet(s)) {currencyFormat(priceTotal)}
-          </span>
+      {itemsTotal > 0 ? (
+        <div className="flex justify-between items-center sm:flex-col sm:items-start sm:gap-6">
+          <div className="flex flex-col gap-2">
+            <strong className="font-semibold">Seu(s) pet(s)</strong>
+            <span>
+              Total ({itemsTotal} pet(s)) {currencyFormat(priceTotal)}
+            </span>
+          </div>
+
+          <div className="flex flex-col bg-secondary w-64 p-4 rounded-md gap-2">
+            <span className="font-semibold">Resumo da compra</span>
+
+            <hr className="text-gray-200" />
+
+            <span className="font-semibold">
+              Total {currencyFormat(priceTotal)}
+            </span>
+
+            <button
+              type="button"
+              onClick={handleFinalizePurchase}
+              className="bg-green-600 text-white font-semibold rounded-md h-10 mt-6 hover:bg-green-700 disabled:opacity-40 disabled:pointer-events-none"
+            >
+              Finalizar a compra
+            </button>
+          </div>
         </div>
-
-        <div className="flex flex-col bg-secondary w-64 p-4 rounded-md gap-2">
-          <span className="font-semibold">Resumo da compra</span>
-
-          <hr className="text-gray-200" />
-
-          <span className="font-semibold">
-            Total {currencyFormat(priceTotal)}
-          </span>
-
-          <button
-            type="button"
-            disabled={itemsTotal === 0}
-            onClick={handleFinalizePurchase}
-            className="bg-green-600 text-white font-semibold rounded-md h-10 mt-6 hover:bg-green-700 disabled:opacity-40 disabled:pointer-events-none"
-          >
-            Finalizar a compra
-          </button>
-        </div>
-      </div>
+      ) : (
+        <p className="font-semibold text-center">
+          Oops, o carrinho no momento esta vazio ):
+        </p>
+      )}
 
       {items.map((item) => (
         <CartItem key={item.id} item={item} />

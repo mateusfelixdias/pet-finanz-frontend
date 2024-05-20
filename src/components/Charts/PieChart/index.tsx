@@ -40,15 +40,21 @@ export default function PieChart({
       <hr />
 
       <div className="w-full bg-secondary rounded-md">
-        <ReactApexChart
-          dir="ltr"
-          type="pie"
-          width="99%"
-          height="350"
-          series={series}
-          options={options}
-          className="text-gray-600"
-        />
+        {series.length > 0 ? (
+          <ReactApexChart
+            dir="ltr"
+            type="pie"
+            width="99%"
+            height="350"
+            series={series}
+            options={options}
+            className="text-gray-600"
+          />
+        ) : (
+          <p className="font-semibold text-center m-10">
+            Oops, sem dados para exibir o gráfico ):
+          </p>
+        )}
       </div>
     </div>
   );
